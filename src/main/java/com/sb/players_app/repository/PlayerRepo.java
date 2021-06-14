@@ -14,4 +14,6 @@ public interface PlayerRepo {
 	void createPlayer(Player player);
 
 	void updatePlayer(Player player);
+	
+	void deleteAllPlayers();
 }

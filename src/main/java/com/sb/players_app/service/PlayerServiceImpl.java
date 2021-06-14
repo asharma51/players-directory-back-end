@@ -44,4 +44,9 @@ public class PlayerServiceImpl implements PlayerService {
 		playerRepo.updatePlayer(player);
 
 	}
+
+	@Override
+	public void deleteAllPlayers() {
+		playerRepo.deleteAllPlayers();
+	}
 }

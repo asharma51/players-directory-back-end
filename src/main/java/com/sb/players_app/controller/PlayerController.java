@@ -56,6 +56,28 @@ public class PlayerController {
 		ps.createPlayer(player);
 		System.out.println("Created the player" + player.getName());
 	}
+	
+	@GetMapping("/reset")
+	@Transactional
+	public List<Player> resetData() {
+		//clear data first
+		ps.deleteAllPlayers();
+		
+		//create new players
+		Player roger = new Player (1,"Roger Federer", "Switzerland", "https://specials-images.forbesimg.com/imageserve/5ee0b74d0378300006626097/960x0.jpg?fit=scale");
+		Player serena = new Player (2, "Serena Williams", "United States","https://images.teamusa.org/-/media/TeamUSA/Tennis/Williams_Serena/Williams_Serena_09032020_1440x810.jpg?h=810&la=en&w=1440&hash=2C8BB4CEFAD78AE22CA67B031A7B95DF31043313" );
+		Player novak = new Player(3, "Novak Djokovic", "Serbia", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Novak_Djokovic_Queen%27s_Club_2018.jpg");
+		Player rafael = new Player (4, "Rafael Nadal", "Spain", "https://www.lovetennis.com/wp-content/uploads/2020/10/rafa-nadal-scaled.jpg");
+		Player naomi = new Player( 5, "Naomi Osaka", "Japan", "https://cdn-media.theathletic.com/cdn-cgi/image/fit=cover,width=700,height=466/uBNZH0RUbRIg_25zJnDKh08wM_1440x.960.jpg");
+		ps.createPlayer(roger);
+		ps.createPlayer(serena);
+		ps.createPlayer(novak);
+		ps.createPlayer(rafael);
+		ps.createPlayer(naomi);
+		
+		System.out.println("Database is Reset");
+		return findAllPlayers();
+	}
 
 	@PatchMapping(path = "/players/{plrId}", consumes = "application/json", produces = "application/json")
 	@Transactional

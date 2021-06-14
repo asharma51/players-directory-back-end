@@ -45,4 +45,9 @@ public class PlayerRepoImpl implements PlayerRepo {
 		em.merge(player);
 	}
 
+	@Override
+	public void deleteAllPlayers() {
+		em.createQuery("DELETE from Player").executeUpdate();
+	}
+
 }

@@ -20,7 +20,18 @@ public class Player implements Serializable {
 	private String country;
 	@Column
 	private String imageURL;
+	
+	public Player() {
+		
+	}
 
+	public Player(long id, String name, String country, String imageURL) {
+		this.id = id;
+		this.name = name;
+		this.country = country;
+		this.imageURL = imageURL;
+	}
+	
 	public long getId() {
 		return id;
 	}
